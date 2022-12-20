@@ -1,0 +1,75 @@
+package com.mkyong.io.csv.opencsv;
+import java.util.*;
+
+import com.opencsv.CSVWriter;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List
+class dataset{
+    float distance[]={100,200,56,500,534,124,223,432,124,35};
+    float time[]={1.2f,1.2f,1.2f,1.2f,1.2f,1.2f,1.2f,1.2f,1.2f,1.2f};
+}
+class userinput extends dataset{
+    static String inputs[]=new String[10];
+    void userinputs(){
+       for(int i=0;i<10;i++){
+           
+          inputs[i]=distance[i]+","+time[i];
+       } 
+    }
+    
+    
+}
+class measure extends userinput{
+    void measure1(){
+    for(int i=0;i<10;i++){
+        
+        String temp[]=inputs[i].split(",");
+        
+        float distance= Float.parseFloat(temp[0]);
+        float time= Float.parseFloat(temp[1]);
+        float speed=distance/time;
+        inputs[i]=inputs[i]+","+speed;
+    }
+    }
+}
+class showresult extends measure{
+    void print(){
+    for(int i=0;i<10;i++){
+        System.out.println(inputs[i]);
+    }
+    }
+}
+
+public class OpenCsvWriterExample {
+
+    public static void main(String[] args) throws IOException {
+
+        List<String[]> csvData = createCsvDataSimple();
+        try (CSVWriter writer = new CSVWriter(new FileWriter("c:\\grl\\grl.csv"))) {
+            writer.writeAll(csvData);
+        }
+
+    }
+    private static List<String[]> createCsvDataSimple() {
+        String[] csvoutput = new String[10];
+
+        List<String[]> list = new ArrayList<>();
+        list.add(k);
+        k++;
+        return list;
+    }
+public class Main
+{
+	public static void main(String[] args) {
+	    userinput input=new userinput();
+	    input.userinputs();
+	    measure m=new measure();
+	    m.measure1();
+	    showresult r=new showresult();
+	    r.print();
+	    
+	}
+}
